@@ -23,13 +23,19 @@
     "@types/md5": "^2.3.2",
     "@types/nconf": "^0.10.3",
     "esm": "^3.2.25",
+    "joi": "^13.6.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.4",
-    "koa-joi-router-docs": "^1.2.1",
-    "koa2-swagger-ui": "^5.6.0",
+    "koa-joi-router": "^5.1.0",
+    "koa-joi-router-docs": "^0.1.9",
+    "koa-router": "^10.1.1",
+    "koa2-swagger-ui": "^5.5.1",
     "md5": "^2.3.0",
+    "moment": "^2.29.4",
     "nconf": "^0.12.0",
     "path-to-regexp": "^6.2.1",
-    "typescript": "^4.7.4"
+    "swagger-jsdoc": "^6.2.1",
+    "typescript": "^4.7.4",
+    "mongoose": "^6.3.8"
   }
 }

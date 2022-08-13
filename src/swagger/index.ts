@@ -2,11 +2,9 @@
  * @Author: CKJiang 
  * @Date: 2022-08-12 13:31:39 
  * @Last Modified by: CkJiang
- * @Last Modified time: 2022-08-12 14:33:59
+ * @Last Modified time: 2022-08-13 09:33:58
  */
-import path from 'path'
-import Config from '../config'
-import Koa, { Context } from 'koa'
+import { Context } from 'koa'
 import { koaSwagger } from 'koa2-swagger-ui'
 import { SwaggerAPI } from 'koa-joi-router-docs'
 import koaRouter from 'koa-joi-router'

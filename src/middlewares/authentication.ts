@@ -2,11 +2,11 @@
  * @Author: CKJiang 
  * @Date: 2022-08-12 16:07:10 
  * @Last Modified by: CkJiang
- * @Last Modified time: 2022-08-12 16:21:35
+ * @Last Modified time: 2022-08-13 10:48:52
  */
 
 import { pathToRegexp } from 'path-to-regexp'
-import Config from 'config'
+import Config from '../config'
 import userHandler from '../handler/userHandler'
 import { Context, Next } from 'koa'
 

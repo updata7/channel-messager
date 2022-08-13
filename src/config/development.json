@@ -1,12 +1,14 @@
 {
   "port": 8081,
+  "apiPrefix": "/api",
   "jwt": {
     "algorithm": "HS256",
     "expiresIn": "2d",
     "secretKey": "secret_+-rwe*6%^vs&43#"
   },
-  "mongo": {
-    "URI": "mongodb://127.0.0.1:27020/"
+  "mongodb": {
+    "uri": "mongodb://127.0.0.1:27020/",
+    "dbname": "testdb"
   },
   "redis": {
     "host": "127.0.0.1",

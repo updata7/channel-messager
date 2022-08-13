@@ -1,17 +1,18 @@
 /*
  * @Author: CKJiang 
  * @Date: 2022-08-12 16:03:16 
- * @Last Modified by:   CkJiang 
- * @Last Modified time: 2022-08-12 16:03:16 
+ * @Last Modified by: CkJiang
+ * @Last Modified time: 2022-08-13 14:07:48
  */
 
 import path from 'path';
 import { getAllFilePaths } from '../utils/tools'
 import router from 'koa-joi-router'
-import Config from 'config'
+import Config from '../config'
+import { RouterPath } from './routerPath';
 const Joi = router.Joi
 
-function adjustHeaderField (routes) {
+function adjustHeaderField (routes: Array<any>) {
     routes.forEach(route => {
         if (route.auth) {
             route.validate.header = Joi.object({
@@ -28,22 +29,25 @@ function adjustHeaderField (routes) {
  *  excludePaths: Array 文件夹下非路由文件或不需要生成路由的文件
  * } options 
  */
-export function getAllRouters(options) {
-    let { directories, excludePaths } = options
+export function getAllRouters(routerPath: RouterPath) {
+    // let { directories, excludePaths } = routerPath
+    let directories = routerPath.directories
+    let excludePaths = routerPath.excludePaths
     let paths = getAllFilePaths(directories)
-    excludePaths = excludePaths.map(relativePath => path.resolve(directories[0], relativePath))
-    paths = paths.filter(item => !excludePaths.includes(item))
+    excludePaths = excludePaths.map((relativePath: string) => path.resolve(directories[0], relativePath))
+    paths = paths.filter((item: any) => !excludePaths.includes(item))
 
-    let routes = []
-    let fileNameToRoute = {}
-    paths.forEach(item => {
+    let routes: Array<any> = []
+    let fileNameToRoute = new Map();
+    paths.forEach((item: string) => {
+        // console.debug("getAllRouters ==> ", item)
         let route = require(item).default
         if (Array.isArray(route)) {
             route.forEach((i) => { 
-                if (fileNameToRoute[i.path]) {
+                if (fileNameToRoute.get(i.path)) {
                     throw new Error(`路由重复配置：${i.path}`)
                 }
-                fileNameToRoute[i.path] = path.parse(item).name
+                fileNameToRoute.set(i.path, path.parse(item).name)
              })
             routes.push(...route)
         } else {
@@ -51,8 +55,9 @@ export function getAllRouters(options) {
         }
     })
 
+    // console.debug("getAllRouters ====>> ", paths, directories, excludePaths)
     routes.forEach(route => {
-        logger.info("path =>>> ", route.path)
+        // console.info("path =>>> ", route.path)
         route.validate.output = {
             200: {
                 schema: '请求返回成功',

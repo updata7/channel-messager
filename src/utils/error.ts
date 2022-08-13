@@ -19,13 +19,21 @@ export const HTTP_STATUS = {
     DATA_UNIQUENESS_CONFLICT: 'DATA_UNIQUENESS_CONFLICT'
   }
   
+  class ServerError extends Error {
+    errorCode: string;
+    status: number;
+    constructor(detailMsg: any, status: number, errorCode: string) {
+      super(detailMsg);
+      this.errorCode = errorCode;
+      this.status = status;
+    }
+  }
+
   export function assert (condition: boolean, status: number, errorCode: string, details: any) {
     if (condition) {
       const detailMsg = JSON.stringify(details || {})
-      const err = new Error(detailMsg)
-      err.errorCode = errorCode
+      const err = new ServerError(detailMsg, status, errorCode)
       err.name = 'AssertError'
-      err.status = status
       Error.captureStackTrace(err, assert)
       throw err
     }
