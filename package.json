@@ -5,7 +5,7 @@
   "main": "dist/src/bin/server.js",
   "scripts": {
     "dev": "NODE_OPTIONS='--trace-warnings' NODE_ENV=development NODE_PATH=dist nodemon --watch dist dist/src/bin/server.js",
-    "build": "rm -rf dist; tsc -p tsconfig.json; cp -rf ./src/config/*.json ./dist/src/config",
+    "build": "rm -rf dist; tsc -p tsconfig.json; cp -rf ./src/config/*.json ./dist/src/config"
   },
   "keywords": [],
   "author": "CK",
