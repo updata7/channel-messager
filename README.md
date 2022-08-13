@@ -1,4 +1,4 @@
-# channel-messager is the project that using Node,typescript,Koa and mongoose, jun for fun, enjoy it!
+# channel-messager is the project that using Node,typescript,Koa and mongoose, enjoy it!
 
 # prepare
 
