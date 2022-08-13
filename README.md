@@ -34,7 +34,11 @@ npm run build
 npm run dev
 ```
 
-Finally, navigate to `http://localhost:8081/api/docs` and you should see the API!
+- Test the API
+
+   Navigate to `http://localhost:8081/api/docs`, you should **see** and **test** the API!!!
+
+  
 
 
 The full folder structure of this proejct is explained below:
