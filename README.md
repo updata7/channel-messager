@@ -12,13 +12,13 @@ To builde and run the project, you will need a few thing:
 - Clone the repository
 
 ```bash
-git clone --depth=1 https://github.com/updata7/channel-messager.git <project_name>
+git clone --depth=1 https://github.com/updata7/channel-messager.git
 ```
 
 - Install dependencies
 
 ```bash
-cd <project_name>
+cd channel-messager
 npm install
 ```
 
